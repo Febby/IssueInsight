@@ -2,26 +2,37 @@ import { useState } from 'react'
 
 // SearchComponent.jsx
 function SearchComponent({ onSearch }) {
-    const [localSearchTerm, setLocalSearchTerm] = useState('');
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      onSearch(localSearchTerm);
-    };
-  
-    return (
-      <form onSubmit={handleSubmit}>
-                <label htmlFor="search-field">
-                Repo name:
-                </label>
-                <input
-                id="search-field"
-                value={localSearchTerm}
-                onChange={event => {
-                    setLocalSearchTerm(event.target.value);
-                }}
-                />
-      </form>
-    );
-  }
+  const [username, setUsername] = useState('');
+  const [repoName, setRepoName] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSearch(`${username}/${repoName}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="username-field">
+        Username:
+      </label>
+      <input
+        id="username-field"
+        value={username}
+        onChange={event => setUsername(event.target.value)}
+      />
+
+      <label htmlFor="repo-field">
+        Repo name:
+      </label>
+      <input
+        id="repo-field"
+        value={repoName}
+        onChange={event => setRepoName(event.target.value)}
+      />
+
+      <button type="submit">Search</button>
+    </form>
+  );
+}
+
 export default SearchComponent

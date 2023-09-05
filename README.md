@@ -34,11 +34,7 @@ IssueInsight is a modern web application built with Vite, aiming to simplify the
    npm run dev
    ```
 
-5. Open your browser and navigate to `http://localhost:3000` (or the port you've configured).
-
-## Contributing
-
-We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) for more details.
+5. Open your browser and navigate to `http://localhost:5173` (or the port you've configured).
 
 ## License
 
