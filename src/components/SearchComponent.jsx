@@ -19,6 +19,7 @@ function SearchComponent({ onSearch }) {
         id="username-field"
         value={username}
         onChange={event => setUsername(event.target.value)}
+        required
       />
 
       <label htmlFor="repo-field">
@@ -28,6 +29,7 @@ function SearchComponent({ onSearch }) {
         id="repo-field"
         value={repoName}
         onChange={event => setRepoName(event.target.value)}
+        required
       />
 
       <button type="submit">Search</button>
