@@ -1,11 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function IssueCard({ issue }) {
+function IssueCard({ issue, username, repoName  }) {
     if (!issue) return null; // This will prevent rendering if issue is undefined
 
     return (
       <div className="issue-card">
-      <h2>{issue.title}</h2>
+      <Link 
+              to={{
+                pathname: `/issue/${issue.id}`,
+                state: {
+                  username: username,
+                  repoName: repoName
+                }
+              }}
+            >
+        {issue.title}
+      </Link>
       <p>Opened by {issue.user.login} on {new Date(issue.created_at).toLocaleDateString()}</p>
       {issue.labels.length > 0 && (
           <div className="labels">
